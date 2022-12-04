@@ -42,11 +42,13 @@ res = linprog(coefficient_of_rounds, A_ub=inequalities_lhs, b_ub=inequalities_rh
               integrality=np.ones_like(coefficient_of_rounds))
 print(res.x)
 
-res = linprog(coefficient_of_rounds, A_ub=inequalities_lhs, b_ub=inequalities_rhs, bounds=bound_values)
-print(res.x)
 
 
-sum_value = 0
-for i in range(1, no_of_sensors):
-    sum_value = sum_value + math.floor(res.x[i - 1])
-print("max total no of round: " + str(sum_value))
+# res = linprog(coefficient_of_rounds, A_ub=inequalities_lhs, b_ub=inequalities_rhs, bounds=bound_values)
+# print(res.x)
+
+
+# sum_value = 0
+# for i in range(1, no_of_sensors):
+#     sum_value = sum_value + math.floor(res.x[i - 1])
+# print("max total no of round: " + str(sum_value))
