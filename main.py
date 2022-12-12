@@ -4,7 +4,7 @@ from scipy.optimize import linprog
 
 no_of_sensors = 5
 no_of_configurations = no_of_sensors
-maximum_capacity_of_sensors = 2000
+maximum_capacity_of_sensors = 10000
 distance_between = 5
 base_station_distance = 10
 rx = 2
@@ -42,13 +42,4 @@ res = linprog(coefficient_of_rounds, A_ub=inequalities_lhs, b_ub=inequalities_rh
               integrality=np.ones_like(coefficient_of_rounds))
 print(res.x)
 
-
-
-# res = linprog(coefficient_of_rounds, A_ub=inequalities_lhs, b_ub=inequalities_rhs, bounds=bound_values)
-# print(res.x)
-
-
-# sum_value = 0
-# for i in range(1, no_of_sensors):
-#     sum_value = sum_value + math.floor(res.x[i - 1])
-# print("max total no of round: " + str(sum_value))
+print(int(sum(res.x)))
