@@ -15,7 +15,7 @@ rounds = []
 distance_from_point=[]
 # max_distance = 5
 base_station_distance = 10
-distance_from_a = 9
+distance_from_a = 3
 rx = 2
 
 for i in range(no_of_sensors - 1):

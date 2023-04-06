@@ -9,7 +9,8 @@ distance_between = [5,1,4,4,3]
 prefix_distance = [0]
 # max_distance = 5
 base_station_distance = 10
-distance_from_a = 3
+distance_from_a_1 = 3
+distance_from_a_2 = 14
 rx = 2
 
 for i in range(no_of_sensors - 1):
@@ -38,7 +39,7 @@ for i in range(no_of_sensors):
     for j in range(no_of_configurations):
         val = 0
         if i == j:
-            val = base_station_distance ** 2 + abs(prefix_distance[i]-distance_from_a)** 2 + 2 * rx
+            val = base_station_distance ** 2 + abs(prefix_distance[i]-distance_from_a_1)** 2 + 2 * rx
         elif i < j:
             val = distance_between[i] ** 2 + rx
         else:
@@ -53,6 +54,27 @@ for i in range(no_of_sensors):
 
     # bounds for each sensor , should greater than or equal to zero
     bound_values.append((0, None))
+
+for i in range(no_of_sensors):
+    each_sensor_diff_config = []
+    for j in range(no_of_configurations):
+        val = 0
+        if i == j:
+            val = base_station_distance ** 2 + abs(prefix_distance[i]-distance_from_a_2)** 2 + 2 * rx
+        elif i < j:
+            val = distance_between[i] ** 2 + rx
+        else:
+            val = distance_between[i - 1] ** 2 + rx
+        if i != 0 and i != no_of_sensors - 1:
+            val += rx
+        each_sensor_diff_config.append(val)
+
+    inequalities_lhs.append(each_sensor_diff_config)
+
+    inequalities_rhs.append(maximum_capacity_of_sensors)
+
+    # bounds for each sensor , should greater than or equal to zero
+    # bound_values.append((0, None))
 
 print(inequalities_lhs)
 print(inequalities_rhs)
