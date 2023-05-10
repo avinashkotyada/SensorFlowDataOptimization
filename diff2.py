@@ -5,16 +5,20 @@ import random
 no_of_sensors = 6
 no_of_configurations = no_of_sensors
 maximum_capacity_of_sensors = 2000
-distance_between = [5,1,4,4,3]
+distance_between = [2, 3, 5, 2, 3]
 prefix_distance = [0]
 # max_distance = 5
-base_station_distance = 10
-distance_from_a = 3
+base_station_distance = 7
+distance_from_a = 7
 rx = 2
 
 for i in range(no_of_sensors - 1):
     prefix_distance.append(prefix_distance[-1] + distance_between[i])
-
+#
+# [2, 3, 5, 2, 3]
+# 7
+# 7
+# [13, 15, 12, 10, 14, 8]
 # random.seed(10)
 # for i in range(no_of_sensors - 1):
 #     ran = random.randint(1, max_distance)
