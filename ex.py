@@ -133,7 +133,7 @@ for ridge_vertices, ridge_points in zip(vor.ridge_vertices, vor.ridge_points):
         for line in lines:
             intersection = ray.intersection(line)
             if isinstance(intersection, Point):
-                intersection_points[intersection] = ridge_points[0]
+             po   intersection_points[intersection] = ridge_points[0]
 
             # print(intersection)
 
